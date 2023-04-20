@@ -5,7 +5,7 @@ const upperContent = `
 As a self-taught web developer, I have dedicated significant
 effort to honing my skills and improving my efficiency. However,
 my journey towards success was not always smooth sailing. In my
-teenage years, I found myself stuck in a vicious cycle of wasting
+early years, I found myself stuck in a vicious cycle of wasting
 time and making little progress, which left me feeling unfulfilled
 and frustrated with my life. I recognized the need for change and
 took inspiration from the words of a wise man who said, "1 Day or
@@ -32,7 +32,7 @@ const About = () => {
     <FlexCenter
       flexDirection="row"
       width="100%"
-      height="100%"
+      height={isNonMobileScreens ? "100%" : "auto"}
       sx={{
         backgroundColor: "#2d2d34",
       }}
@@ -83,7 +83,7 @@ const About = () => {
           </FlexCenter>
         </FlexCenter>
       ) : (
-        <FlexCenter flexDirection="column">
+        <FlexCenter margin={3} flexDirection="column">
           {/* If is Mobile */}
           <FlexCenter
             width="30%"

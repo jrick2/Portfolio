@@ -26,7 +26,7 @@ const LandingPage = () => {
           <Typography
             variant="h1"
             sx={{
-              fontSize: isNonMobileScreens ? "3.4rem" : "3rem",
+              fontSize: isNonMobileScreens ? "3.4rem" : "2.7rem",
               fontWeight: 600,
               textAlign: "center",
             }}

@@ -60,16 +60,30 @@ const BoxContent = ({
                 {desciption}
               </Typography>
               <FlexCenter gap={1} margin={1}>
-                <Typography sx={{ fontSize: "18px", color: palette.grey[500] }}>
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: palette.grey[500],
+                    textTransform: "uppercase",
+                  }}
+                >
                   {tech1}
                 </Typography>
                 <Typography
-                  sx={{ fontSize: "18px", color: palette.secondary[500] }}
+                  sx={{
+                    fontSize: "14px",
+                    color: palette.secondary[500],
+                    textTransform: "uppercase",
+                  }}
                 >
                   {tech2}
                 </Typography>
                 <Typography
-                  sx={{ fontSize: "18px", color: palette.tertiary[500] }}
+                  sx={{
+                    fontSize: "14px",
+                    color: palette.tertiary[500],
+                    textTransform: "uppercase",
+                  }}
                 >
                   {tech3}
                 </Typography>
@@ -116,16 +130,30 @@ const BoxContent = ({
               </Typography>
             </Box>
             <FlexCenter gap={1} margin={1}>
-              <Typography sx={{ fontSize: "18px", color: palette.grey[500] }}>
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  color: palette.grey[500],
+                  textTransform: "uppercase",
+                }}
+              >
                 {tech1}
               </Typography>
               <Typography
-                sx={{ fontSize: "18px", color: palette.secondary[500] }}
+                sx={{
+                  fontSize: "14px",
+                  color: palette.secondary[500],
+                  textTransform: "uppercase",
+                }}
               >
                 {tech2}
               </Typography>
               <Typography
-                sx={{ fontSize: "18px", color: palette.tertiary[500] }}
+                sx={{
+                  fontSize: "14px",
+                  color: palette.tertiary[500],
+                  textTransform: "uppercase",
+                }}
               >
                 {tech3}
               </Typography>
