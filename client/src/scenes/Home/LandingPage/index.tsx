@@ -13,7 +13,7 @@ const LandingPage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1120px)");
   return (
     <>
-      <FlexCenter flexDirection="column" width="100%" height="70%">
+      <FlexCenter id="home" flexDirection="column" width="100%" height="70%">
         {/* Upper Haft */}
         {/* Title  */}
         <FlexCenter

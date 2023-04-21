@@ -9,10 +9,21 @@ html,
 body,
 #root,
 .app {
+  overflow: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
   overflow-x: hidden;
   height: 100%;
   width: 100%;
   font-family: "Inter", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }

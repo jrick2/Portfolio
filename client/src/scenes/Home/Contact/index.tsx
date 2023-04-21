@@ -7,7 +7,12 @@ import FlexBetween from "@/components/Flexbetween";
 const Contact = () => {
   const { palette } = useTheme();
   return (
-    <FlexCenter height="35%" flexDirection="column">
+    <FlexCenter
+      className="contact"
+      id="contact"
+      height="35%"
+      flexDirection="column"
+    >
       <Box margin={2} textAlign="center">
         <Typography variant="h2" sx={{ color: palette.tertiary[500] }}>
           CONTACT

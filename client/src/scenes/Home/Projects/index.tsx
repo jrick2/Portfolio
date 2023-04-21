@@ -8,7 +8,7 @@ const Projects = () => {
   const { palette } = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width:1120px)");
   return (
-    <Box width="100%" height="auto">
+    <Box className="projects" id="projects" width="100%" height="auto">
       <FlexCenter margin={2} flexDirection="column">
         <Typography variant="h2" sx={{ color: palette.tertiary[500] }}>
           PORTPOLIO

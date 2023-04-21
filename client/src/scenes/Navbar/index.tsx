@@ -1,11 +1,27 @@
 import FlexBetween from "@/components/Flexbetween";
-import { Box, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { navLinks } from "@/components/contants";
+// import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [selected, setSelected] = useState("home");
+  const [isOpen, setIsOpen] = useState(false);
+  const isNonMobileScreens = useMediaQuery("(min-width:1120px)");
+
   const { palette } = useTheme();
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <FlexBetween
       color={palette.primary[300]}
@@ -24,44 +40,75 @@ const Navbar = () => {
           Code Abe
         </Typography>
       </FlexBetween>
-      <FlexBetween gap={3} sx={{ fontSize: "21px" }}>
-        <Box>
-          <Link
-            to="/"
-            onClick={() => setSelected("home")}
-            style={{
-              color: selected === "home" ? "inherit" : palette.primary[700],
-              textDecoration: "inherit",
-            }}
-          >
-            Home
-          </Link>
+
+      {isNonMobileScreens ? (
+        <FlexBetween gap={2}>
+          {navLinks.map((nav) => (
+            <a
+              href={`#${nav.id}`}
+              onClick={() => setSelected(nav.title)}
+              style={{
+                textDecoration: "inherit",
+                color:
+                  selected === nav.title ? "inherit" : palette.primary[700],
+              }}
+            >
+              {nav.title}
+            </a>
+          ))}
+        </FlexBetween>
+      ) : (
+        <Box
+          sx={
+            isOpen
+              ? {
+                  width: "30%",
+                  height: "30%",
+                  display: "flex",
+                  position: "fixed",
+                  right: 0,
+                  top: 0,
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "1.5rem",
+                  backgroundColor: "inherit",
+                }
+              : ""
+          }
+        >
+          {isOpen ? (
+            <>
+              {navLinks.map((nav) => (
+                <a
+                  href={`#${nav.id}`}
+                  onClick={() => setSelected(nav.title)}
+                  style={{
+                    textDecoration: "inherit",
+                    color:
+                      selected === nav.title ? "inherit" : palette.primary[700],
+                  }}
+                >
+                  {nav.title}
+                </a>
+              ))}
+            </>
+          ) : (
+            ""
+          )}
         </Box>
-        <Box>
-          <Link
-            to="/projects"
-            onClick={() => setSelected("projects")}
-            style={{
-              color: selected === "projects" ? "inherit" : palette.primary[700],
-              textDecoration: "inherit",
-            }}
-          >
-            Projects
-          </Link>
-        </Box>
-        <Box>
-          <Link
-            to="/contact"
-            onClick={() => setSelected("contact")}
-            style={{
-              color: selected === "contact" ? "inherit" : palette.primary[700],
-              textDecoration: "inherit",
-            }}
-          >
-            Contact
-          </Link>
-        </Box>
-      </FlexBetween>
+      )}
+
+      <Button
+        onClick={handleToggle}
+        sx={{ display: isNonMobileScreens ? "none" : "block" }}
+      >
+        {isOpen ? (
+          <CloseIcon sx={{ fontSize: "2rem" }} />
+        ) : (
+          <MenuIcon sx={{ fontSize: "2rem" }} />
+        )}
+      </Button>
     </FlexBetween>
   );
 };
