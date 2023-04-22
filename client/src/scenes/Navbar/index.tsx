@@ -8,9 +8,9 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+
 import { useState } from "react";
 import { navLinks } from "@/components/contants";
-// import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [selected, setSelected] = useState("home");
@@ -19,9 +19,10 @@ const Navbar = () => {
 
   const { palette } = useTheme();
 
-  const handleToggle = () => {
+  const handleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <FlexBetween
       color={palette.primary[300]}
@@ -36,7 +37,7 @@ const Navbar = () => {
       }}
     >
       <FlexBetween>
-        <Typography variant="h1" fontSize="25px">
+        <Typography variant="h1" fontSize="25px" sx={{ fontWeight: "500" }}>
           Code Abe
         </Typography>
       </FlexBetween>
@@ -49,6 +50,7 @@ const Navbar = () => {
               onClick={() => setSelected(nav.title)}
               style={{
                 textDecoration: "inherit",
+                fontSize: "1.2rem",
                 color:
                   selected === nav.title ? "inherit" : palette.primary[700],
               }}
@@ -58,33 +60,32 @@ const Navbar = () => {
           ))}
         </FlexBetween>
       ) : (
-        <Box
-          sx={
-            isOpen
-              ? {
-                  width: "30%",
-                  height: "30%",
-                  display: "flex",
-                  position: "fixed",
-                  right: 0,
-                  top: 0,
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "1.5rem",
-                  backgroundColor: "inherit",
-                }
-              : ""
-          }
-        >
+        <>
           {isOpen ? (
-            <>
+            <Box
+              sx={{
+                width: "30%",
+                height: "35%",
+                display: "flex",
+                position: "fixed",
+                right: 0,
+                top: 0,
+                bottom: 0,
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "2rem",
+                backgroundColor: "inherit",
+                transition: "2s",
+              }}
+            >
               {navLinks.map((nav) => (
                 <a
                   href={`#${nav.id}`}
                   onClick={() => setSelected(nav.title)}
                   style={{
                     textDecoration: "inherit",
+                    fontSize: "1.2rem",
                     color:
                       selected === nav.title ? "inherit" : palette.primary[700],
                   }}
@@ -92,15 +93,15 @@ const Navbar = () => {
                   {nav.title}
                 </a>
               ))}
-            </>
+            </Box>
           ) : (
             ""
           )}
-        </Box>
+        </>
       )}
 
       <Button
-        onClick={handleToggle}
+        onClick={handleMenu}
         sx={{ display: isNonMobileScreens ? "none" : "block" }}
       >
         {isOpen ? (

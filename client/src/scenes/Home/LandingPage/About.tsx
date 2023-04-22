@@ -27,9 +27,10 @@ value of my work.`;
 
 const About = () => {
   const { palette } = useTheme();
-  const isNonMobileScreens = useMediaQuery("(min-width:1200px)");
+  const isNonMobileScreens = useMediaQuery("(min-width:1120px)");
   return (
     <FlexCenter
+      id="about"
       flexDirection="row"
       width="100%"
       height={isNonMobileScreens ? "100%" : "auto"}
